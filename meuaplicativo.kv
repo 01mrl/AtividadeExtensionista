@@ -1,0 +1,313 @@
+<Gerenciador>
+    Menuinicial:
+        name: 'menuinicial'
+    MenuOpcoes:
+        name: 'menuopcoes'
+    Pergunta1:
+        name: 'pergunta1'
+    Pergunta2:
+        name: 'pergunta2'
+    Pergunta3:
+        name: 'pergunta3'
+    Pergunta4:
+        name: 'pergunta4'
+
+<Menuinicial>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgb: 1,0,0,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+
+            LabelsemCor:
+                id: LabelsemCor_mensagem_inicial
+                text: "ProKIDS"
+                font_size: 17
+                size_hint: None, None
+                size_hint_x: 0.70
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.5,'center_y':0.5}
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 10
+            spacing: 20
+            Botao:
+                id:  botao_iniciar
+                text: "Iniciar"
+                on_release: root.manager.current = 'menuopcoes'
+                font_size: 17
+                pos_hint: {'center_x':.5,'center_y':0.35}
+                size_hint: None, None
+                height: 90
+                width: 180
+
+            Botao:
+                id: botao_configurar
+                text: "Configurações"
+                font_size: 17
+                pos_hint: {'center_x':.5,'center_y':0.225}
+                size_hint: None, None
+                height: 90
+                width: 180
+            Botao:
+                id:  botao_fechar
+                text: "Fechar"
+                on_release: root.confirmacao()
+                font_size: 17
+                pos_hint: {'center_x':.5,'center_y':0.1}
+                size_hint: None, None
+                height: 90
+                width: 180
+<MenuOpcoes>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgb: 1,1,0,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            LabelsemCor:
+                id: 'label_princial'
+                text: "O que deseja fazer?"
+                font_size: 17
+                size_hint: None, None
+                size_hint_x: 0.70
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.5,'center_y':0.5}
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 10
+            spacing: 20
+            Botao:
+                text: "Responder perguntas"
+                on_release: root.manager.current = 'pergunta1'
+                font_size: 17
+                pos_hint: {'center_x':.5,'center_y':0.35}
+                size_hint: None, None
+                height: 90
+                width: 180
+
+            Botao:
+                id: 'botaorandon'
+                text: "Brincar"
+                font_size: 17   
+                pos_hint: {'center_x':.5,'center_y':0.225}
+                size_hint: None, None
+                height: 90
+                width: 180
+            Botao:
+                text: "Voltar"
+                on_release: root.manager.current = 'menuinicial'
+                font_size: 17
+                pos_hint: {'center_x':.5,'center_y':0.1}
+                size_hint: None, None
+                height: 90
+                width: 180
+<Pergunta1>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgb: 1,0,0,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            size_hint_y: 0.30
+            LabelsemCor:
+                id: pergunta
+                text: "Qual o nome dessa cor?"
+                font_size: 17
+                size_hint: None, None
+                size_hint_x: 0.70
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.5,'center_y':0.5}
+        BoxLayout:
+            size_hint_y: 0.20
+            canvas.before:
+                Color:
+                    rgb: 1,1,0,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        BoxLayout:
+            size_hint_y: 0.20
+            orientation: 'horizontal'
+            Botao:
+                text: 'Azul'
+                font_size: 17
+                on_release: root.erro()
+                size_hint: None, None
+                size_hint_x: 0.70
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.2,'center_y':0.5}
+            Botao:                
+                text: 'Amarelo'
+                font_size: 17
+                on_release: root.acerto()
+                on_release: root.manager.current = 'pergunta2'
+                size_hint: None, None
+                size_hint_x: 0.70
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.7,'center_y':0.5}
+        BoxLayout:
+            size_hint_y: 0.3
+            orientation: 'horizontal'
+            Botao:
+                text: 'Voltar'
+                font_size: 17
+                on_release: root.manager.current = 'menuopcoes'
+                size_hint: None, None
+                size_hint_x: 0.40
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.2,'center_y':0.5}
+            Botao:                
+                text: 'Fechar'
+                font_size: 17
+                on_release: root.confirmacao()
+                size_hint: None, None
+                size_hint_x: 0.40
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.7,'center_y':0.5}
+<Pergunta2>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgb: 1,1,0,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:                 
+            LabelsemCor:
+                id: pergunta
+                text: "Qual o nome dessa fruta?"
+                font_size: 17
+                size_hint: None, None
+                size_hint_x: 0.70
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.5,'center_y':0.5}
+        BoxLayout:
+            Image:
+                source: 'maca.png'
+        BoxLayout:
+            orientation: 'horizontal'
+            Botao:
+                text: 'Maça'
+                font_size: 17
+                on_release: root.acerto()
+                on_release: root.manager.current = 'pergunta3'
+                size_hint: None, None
+                size_hint_x: 0.70
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.2,'center_y':0.5}
+            Botao:                
+                text: 'Melão'
+                font_size: 17
+                on_release: root.erro()
+                size_hint: None, None
+                size_hint_x: 0.70
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.7,'center_y':0.5}
+        BoxLayout:
+            orientation: 'horizontal'
+            Botao:
+                text: 'Voltar'
+                font_size: 17
+                on_release: root.manager.current = 'menuopcoes'
+                size_hint: None, None
+                size_hint_x: 0.40
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.2,'center_y':0.5}
+            Botao:                
+                text: 'Fechar'
+                font_size: 17
+                on_release: root.confirmacao()
+                size_hint: None, None
+                size_hint_x: 0.40
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.7,'center_y':0.5}
+<Pergunta3>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgb: 1,1,0,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:                 
+            LabelsemCor:
+                id: pergunta
+                text: "Quantos dedos tem aqui?"
+                font_size: 17
+                size_hint: None, None
+                size_hint_x: 0.70
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.5,'center_y':0.5}
+        BoxLayout:
+            Image:
+                source: 'dedos.png'
+        BoxLayout:
+            orientation: 'horizontal'
+            Botao:
+                text: 'Dois dedos'
+                font_size: 17
+                on_release: root.acerto()
+                on_release: root.manager.current = 'pergunta4'
+                size_hint: None, None
+                size_hint_x: 0.70
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.2,'center_y':0.5}
+            Botao:                
+                text: 'Três dedos'
+                font_size: 17
+                on_release: root.erro()
+                size_hint: None, None
+                size_hint_x: 0.70
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.7,'center_y':0.5}
+        BoxLayout:
+            orientation: 'horizontal'
+            Botao:
+                text: 'Voltar'
+                font_size: 17
+                on_release: root.manager.current = 'menuopcoes'
+                size_hint: None, None
+                size_hint_x: 0.40
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.2,'center_y':0.5}
+            Botao:                
+                text: 'Fechar'
+                font_size: 17
+                on_release: root.confirmacao()
+                size_hint: None, None
+                size_hint_x: 0.40
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.7,'center_y':0.5}
+<Pergunta4>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgb: 1,1,0,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+
+            LabelsemCor:
+                id: LabelsemCor_mensagem_inicial
+                text: "Terminamos por enquanto, aguarde atualizações"
+                font_size: 17
+                size_hint: None, None
+                size_hint_x: 0.70
+                size_hint_y: 0.2
+                pos_hint: {'center_x':.5,'center_y':0.5}
+
